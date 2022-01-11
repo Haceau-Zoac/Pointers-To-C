@@ -1,2 +1,2 @@
-@clang main.c negate.c increment.c -o main.exe
+@cl main.c negate.c increment.c
 @.\main
