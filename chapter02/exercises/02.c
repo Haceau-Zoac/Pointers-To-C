@@ -27,7 +27,10 @@ int main(void)
     if (c == '{')
       --count;
     else if (c == '}')
-      ++count;
+      if (count == 0)
+        puts("WRONG!");
+      else
+        ++count;
   }
   if (count != 0)
     puts("WRONG!");
