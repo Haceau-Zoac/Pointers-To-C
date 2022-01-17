@@ -13,13 +13,19 @@ void print_ledger_default(int arg) {
 }
 
 void print_ledger(int arg) {
-#ifdef        OPTION_LONG
+#ifdef    OPTION_LONG
+#define   OK 1
   print_ledger_long(arg);
-#elif defined(OPTION_DETAILED)
+#endif /* OPTION_LONG */
+  
+#ifdef    OPTION_DETAILED
+#define   OK 1
   print_ledger_detailed(arg);
-#else      /* OPTION_NO */
+#endif /* OPTION_DETAILED */
+
+#ifndef OK
   print_ledger_default(arg);
-#endif     /* OPTION_LONG */
+#endif
 }
 
 int main() {
